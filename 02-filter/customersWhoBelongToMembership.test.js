@@ -1,3 +1,6 @@
+import { describe, it, expect } from "vitest";
+import customersWhoBelongToMembership from "./customersWhoBelongToMembership.js";
+
 const EMPTY_CUSTOMERS_LIST = [];
 
 const CUSTOMERS_LIST = [
@@ -20,11 +23,38 @@ const CUSTOMERS_LIST_WITH_ALL_MEMBERS = [
 ];
 
 describe("customersWhoBelongToMembership", () => {
-  it.todo("should return only customers who are members");
+  it("should return only customers who are members",() => {
 
-  it.todo("should handle an empty array");
+    const output = customersWhoBelongToMembership(CUSTOMERS_LIST);
 
-  it.todo("should handle an array with no members");
+    expect(output).toEqual([
+        { name: "Foo", isMember: true },
+        { name: "Fizz", isMember: true },
+        { name: "FizzBuzz", isMember: true },
+      ])
+  });
 
-  it.todo("should handle an array with all members");
+  it("should handle an empty array",()=>{
+
+    const output = customersWhoBelongToMembership(EMPTY_CUSTOMERS_LIST);
+
+    expect(output).toEqual([]);
+  });
+
+  it("should handle an array with no members",()=> {
+
+    const output = customersWhoBelongToMembership(CUSTOMERS_LIST_WITH_NO_MEMBERS);
+
+    expect(output).toEqual([]);
+  });
+
+  it("should handle an array with all members");
+
+    const output = customersWhoBelongToMembership(CUSTOMERS_LIST_WITH_ALL_MEMBERS);
+
+    expect(output).toEqual([
+        { name: "Foo", isMember: true },
+        { name: "Fizz", isMember: true },
+        { name: "FizzBuzz", isMember: true },
+      ]);
 });

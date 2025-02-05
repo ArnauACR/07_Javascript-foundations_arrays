@@ -14,3 +14,16 @@
  * @param {string[]} wordsList - An array of words to be filtered.
  * @returns {string[]} An array containing words that are 5 or more characters long.
  */
+function getLongWords(wordsList) {
+    const longWords = [];
+
+    if (!wordsList || wordsList.length === 0) {
+        return longWords;
+    }
+
+    const result = wordsList.filter((word) =>  word.length >= 5);
+
+    return result;
+}
+
+export default getLongWords;

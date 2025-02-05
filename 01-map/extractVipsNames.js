@@ -35,3 +35,20 @@ const VIPS = [
  * @param {Array} vipsList - An array of VIP objects, each containing a `name` property.
  * @returns {Array} An array of names extracted from the VIP objects.
  */
+function extractVipsNames(vipsList) {
+    
+    if(!vipsList) {
+
+        return []
+    }
+
+    const mapExtractVipsNames = vipsList.map((vip) => {
+        
+        const vipName = vip.name
+
+        return vipName;
+    });
+    
+    return mapExtractVipsNames;
+}
+export default extractVipsNames;

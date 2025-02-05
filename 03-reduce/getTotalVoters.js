@@ -26,5 +26,10 @@
  * @param {boolean} voters[].hasVoted - Indicates if the voter has voted.
  * @returns {number} The total number of voters who have voted.
  */
+function getTotalVoters(votersList) {
+    return votersList.reduce((total, voter) => {
+        return voter.hasVoted ? total + 1 : total;
+    }, 0);
+}
 
 export default getTotalVoters;

@@ -1,3 +1,6 @@
+import { describe, it, expect } from "vitest";
+import getTotalVoters from "./getTotalVoters.js";
+
 const VOTERS = [
   { name: "Bob", age: 30, hasVoted: true },
   { name: "Jake", age: 32, hasVoted: true },
@@ -36,15 +39,23 @@ const EMPTY_VOTERS = [];
 const SINGLE_NON_VOTER = [{ name: "Kate", age: 25, hasVoted: false }];
 
 describe("getTotalVoters", () => {
-  it.todo("should return the correct number of voters");
-
-  it.todo("should return 0 when no one has voted");
-
-  it.todo("should return the correct number when all have voted");
-
-  it.todo("should handle an empty array");
-
-  it.todo("should handle an array with one voter who has voted");
-
-  it.todo("should handle an array with one voter who has not voted");
-});
+    it("should return the correct number of voters", () => {
+        expect(getTotalVoters(VOTERS)).toBe(7);
+      });
+    
+      it("should return 0 when no one has voted", () => {
+        expect(getTotalVoters(NO_VOTERS)).toBe(0);
+      });
+    
+      it("should return the correct number when all have voted", () => {
+        expect(getTotalVoters(ALL_VOTERS)).toBe(7);
+      });
+    
+      it("should handle an empty array", () => {
+        expect(getTotalVoters(EMPTY_VOTERS)).toBe(0);
+      });
+    
+      it("should handle an array with one voter who has not voted", () => {
+        expect(getTotalVoters(SINGLE_NON_VOTER)).toBe(0);
+      });
+    });
