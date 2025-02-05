@@ -1,3 +1,6 @@
+import { describe, it, expect } from "vitest";
+import getLongWords from "./getLongWords.js";
+
 const LANGUAGES = ["Java", "C++", "JavaScript", "C#", "TypeScript"];
 const BEATLES = ["John", "George", "Paul", "Ringo"];
 const SHORT_WORDS = ["a", "bb", "ccc", "dddd"];
@@ -6,15 +9,33 @@ const EMPTY_ARRAY = [];
 const MIXED_LENGTH_WORDS = ["short", "tiny", "adequate", "sufficient"];
 
 describe("getLongWords", () => {
-  it.todo("should return long words from LANGUAGES array");
+    it("should return long words from LANGUAGES array", () => {
+        const output = getLongWords(LANGUAGES);
+        expect(output).toEqual(["JavaScript", "TypeScript"]);
+    });
 
-  it.todo("should return long words from BEATLES array");
+    it("should return long words from BEATLES array", () => {
+        const output = getLongWords(BEATLES);
+        expect(output).toEqual(["George", "Ringo"]);
+    });
 
-  it.todo("should return an empty array if no words are long enough");
+    it("should return an empty array if no words are long enough", () => {
+        const output = getLongWords(SHORT_WORDS);
+        expect(output).toEqual([]);
+    });
 
-  it.todo("should return the same array if all words are long enough");
+    it("should return the same array if all words are long enough", () => {
+        const output = getLongWords(ALL_LONG_WORDS);
+        expect(output).toEqual(["JavaScript", "TypeScript", "Python"]);
+    });
 
-  it.todo("should handle an empty input array");
+    it("should handle an empty input array", () => {
+        const output = getLongWords(EMPTY_ARRAY);
+        expect(output).toEqual([]);
+    });
 
-  it.todo("should handle an array with mixed length words");
+    it("should handle an array with mixed length words", () => {
+        const output = getLongWords(MIXED_LENGTH_WORDS);
+        expect(output).toEqual(["short", "adequate", "sufficient"]);
+    });
 });

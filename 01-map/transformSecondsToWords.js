@@ -12,3 +12,21 @@
  * @param {number[]} secondsList - An array of seconds to be transformed.
  * @returns {string[]} An array of stringified seconds.
  */
+function transformSecondsToWords(secondsList){
+
+    if(!secondsList){
+
+        return []
+    };
+
+    const maptransformSecondsToWords = secondsList.map((second) => {
+
+        const secondstring = `${second}`;
+
+        return secondstring;
+
+    })
+
+    return maptransformSecondsToWords;
+}
+export default transformSecondsToWords;
